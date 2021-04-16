@@ -80,11 +80,14 @@ def get_teams(filters):
                             if row['id'] not in teams:
                                 team = Team(row['id'], row['name'])
                                 teams[row['id']] = team
+                                if row['teamId'] == team.__getattribute__("id"):
+                                    player = Player(row['player_id'], row['firstName'], row['lastName'], row['teamId'])
+                                    team.players.append(player.__dict__)
                             else:
                                 team = teams[row['id']]
-                            if row['teamId'] == row['id']
-                                player = Player(row['player_id'], row['firstName'], row['lastName'], row['teamId'])
-                                team.players.append(player.__dict__)
+                                if row['teamId'] == team.__getattribute__("id"):
+                                    player = Player(row['player_id'], row['firstName'], row['lastName'], row['teamId'])
+                                    team.players.append(player.__dict__)
 
             json_teams = []
             for team in teams.values():
