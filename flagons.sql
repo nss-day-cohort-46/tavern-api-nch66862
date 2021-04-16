@@ -58,7 +58,6 @@ INSERT INTO `TeamScore`
 VALUES (null, 2, 6, 1583873462376);
 INSERT INTO `TeamScore`
 VALUES (null, 2, 3, 1583873462376);
-
 SELECT t.id,
     t.name,
     p.id player_id,
@@ -67,3 +66,12 @@ SELECT t.id,
     p.teamId
 FROM Teams t
     JOIN Players p ON p.teamId = t.id;
+
+SELECT t.id,
+    t.name,
+    ts.id score_id,
+    ts.teamId,
+    ts.score,
+    ts.timeStamp
+FROM Teams t
+    LEFT OUTER JOIN TeamScore ts ON ts.teamId = t.id;

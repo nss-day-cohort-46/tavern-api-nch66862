@@ -58,7 +58,7 @@ def get_teams(filters):
                             score = int(row['score']) if row['score'] is not None else 0
                             if score > 0:
                                 team_score = TeamScore(row['score_id'], row['teamId'], score, row['timeStamp'])
-                            team.scores.append(team_score.__dict__)
+                                team.scores.append(team_score.__dict__)
 
 
                     elif related_resource == "players":
